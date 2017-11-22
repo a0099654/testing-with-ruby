@@ -8,7 +8,7 @@ class AchievementsController < ApplicationController
         if @achievement.save
             redirect_to root_url, notice: 'Achievement has been created'
         else
-            redirect_to root_url, notice: 'Achievement form is incomplete'
+            render :new
         end
     end
 

@@ -25,6 +25,6 @@ feature 'create new achievement' do
         click_on('New Achievement')
 
         click_on('Create achievement')
-        expect(page).to have_content('Achievement form is incomplete')
+        expect(page).to have_content('can\'t be blank')
     end
 end
