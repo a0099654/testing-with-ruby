@@ -8,7 +8,7 @@ feature 'create new achievement' do
 
         #fill in a form
         fill_in('Title', with: 'Read a book')
-        fill_in('Description', with: 'This is a description of the book')
+        fill_in('Description',  with: 'This is a description of the book')
 
         select('Public', from: 'Privacy')
 
