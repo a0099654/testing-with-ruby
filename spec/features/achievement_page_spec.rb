@@ -7,5 +7,12 @@ feature 'scenario page' do
 
         expect(page).to have_content('Just did it ')
     end
+
+    scenario 'render markdown description' do
+        achievement = Achievement.create!(description: 'That *was* hard')
+        visit("/achievements/#{achievement.id}")
+
+        expect(page).to have_content('<i>was</i>') 
+    end
 end
 
