@@ -13,7 +13,7 @@ describe AchievementsController do
         end
     end
 
-    describe "GET show" do
+    describe 'GET show' do
         let(:achievement) { FactoryBot.create(:public_achievement)}
 
         it 'renders :show template' do
@@ -26,4 +26,15 @@ describe AchievementsController do
             expect(assigns(:achievement)).to eq(achievement)
         end
     end
+
+    describe 'POST show' do
+
+        it 'redirects to achievements#show' do
+            post :create,  params: { achievement: FactoryBot.attributes_for(:public_achievement) } 
+            expect(response).to redirect_to(achievement_path(assigns[:achievement]))
+        end
+
+        it 'creates a new achievement in the database'
+    end
+
 end
