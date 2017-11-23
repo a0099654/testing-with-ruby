@@ -17,10 +17,13 @@ describe AchievementsController do
         let(:achievement) { FactoryBot.create(:public_achievement)}
 
         it 'renders :show template' do
-            get :show, params: { id: achievement.id }
+            get :show, params: { id: achievement }
             expect(response).to render_template(:show)
         end
 
-        it 'assigns requested achievement to @achievement'
+        it 'assigns requested achievement to @achievement' do
+            get :show, params: { id: achievement }
+            expect(assigns(:achievement)).to eq(achievement)
+        end
     end
 end
