@@ -4,6 +4,6 @@ FactoryBot.define do
     description "Description"
     privacy Achievement.privacies[:private_acccess]
     featured false
-    cover_image "MyString"
+    cover_image "some_file.png"
   end
 end
