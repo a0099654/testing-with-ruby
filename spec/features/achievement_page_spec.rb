@@ -8,7 +8,7 @@ feature 'scenario page' do
         expect(page).to have_content('Just did it ')
 
         achievements = FactoryBot.create_list(:achievement, 3)
-        p achievements
+        # p achievements
 
     end 
 
