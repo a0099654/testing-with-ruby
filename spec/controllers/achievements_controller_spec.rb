@@ -8,7 +8,7 @@ describe AchievementsController do
         end
 
         it 'assigns new achievement to @achievement' do
-            get :new
+              get :new
             expect(assigns(:achievement)).to be_a_new(Achievement)
         end
     end
