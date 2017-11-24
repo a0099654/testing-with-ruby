@@ -33,6 +33,10 @@ class AchievementsController < ApplicationController
         end
     end
 
+    def destroy
+        redirect_to achievements_path
+    end
+
     private
     
     def achievement_params
