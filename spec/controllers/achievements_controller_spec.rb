@@ -48,7 +48,6 @@ describe AchievementsController do
             get :show, params: { id: achievement }
             expect(response).to render_template(:show)
         end
-
         it 'assigns requested achievement to @achievement' do
             get :show, params: { id: achievement }
             expect(assigns(:achievement)).to eq(achievement)
@@ -69,7 +68,6 @@ describe AchievementsController do
                 }.to change(Achievement, :count).by(1)
             end
         end
-
         context 'invalid data' do
             let(:invalid_data) { FactoryBot.attributes_for(:public_achievement, title: '') }
 
@@ -84,7 +82,6 @@ describe AchievementsController do
                 }.not_to change(Achievement, :count)
             end
         end
-
     end
 
     describe 'PUT update' do
@@ -111,7 +108,12 @@ describe AchievementsController do
                 expect(response).to render_template(:edit)
             end
 
-            it 'doesnot update achievemnt in the database'
+            it 'doesnot update achievement in the database' do
+                put :update, params: { id: achievement, achievement: invalid_data }
+                achievement.reload
+                expect(achievement.description).not_to eq('new')
+            end
         end
     end
+
 end
