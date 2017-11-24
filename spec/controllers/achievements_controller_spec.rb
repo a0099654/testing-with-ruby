@@ -124,6 +124,9 @@ describe AchievementsController do
             expect(response).to redirect_to(achievements_path)
         end
 
-        it 'delete achievements from database'
+        it 'delete achievements from database' do
+            delete :destroy, params: { id: achievement }
+            expect(Achievement.exists?(achievement.id)).to be_falsy
+        end
     end
 end
