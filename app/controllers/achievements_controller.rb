@@ -25,7 +25,10 @@ class AchievementsController < ApplicationController
     end
 
     def update
-        redirect_to achievement_path(params[:id])
+        @achievement = Achievement.find(params[:id])
+        if @achievement.update_attributes(achievement_params)
+            redirect_to achievement_path(@achievement)
+        end
     end
 
     private
