@@ -28,6 +28,8 @@ class AchievementsController < ApplicationController
         @achievement = Achievement.find(params[:id])
         if @achievement.update_attributes(achievement_params)
             redirect_to achievement_path(@achievement)
+        else
+            render :edit
         end
     end
 

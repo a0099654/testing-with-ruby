@@ -104,7 +104,14 @@ describe AchievementsController do
             end
         end
         context 'invalid data' do
-            let(:invalid_data) { FactoryBot.attributes_for(:public_achievement, title:'') }
+            let(:invalid_data) { FactoryBot.attributes_for(:public_achievement, title:'', description:'new') }
+
+            it 'render :edit template' do
+                put :update, params: { id: achievement, achievement: invalid_data }
+                expect(response).to render_template(:edit)
+            end
+
+            it 'doesnot update achievemnt in the database'
         end
     end
 end
