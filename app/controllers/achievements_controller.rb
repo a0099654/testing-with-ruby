@@ -20,6 +20,10 @@ class AchievementsController < ApplicationController
         @achievement = Achievement.find(params[:id])
     end
 
+    def edit
+        @achievement = Achievement.find(params[:id])
+    end
+
     private
     
     def achievement_params
