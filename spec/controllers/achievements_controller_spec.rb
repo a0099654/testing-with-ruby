@@ -40,5 +40,19 @@ describe AchievementsController do
                 }.to change(Achievement, :count).by(1)
             end
         end
+
+        context 'invalid data' do
+            it 'render :new template' do
+                post :create,  params: { achievement: FactoryBot.attributes_for(:public_achievement, title: '') } 
+                expect(response).to render_template(:new)
+            end
+
+            it 'doesnot create a new achievement in the database' do
+                expect {
+                    post :create,  params: { achievement: FactoryBot.attributes_for(:public_achievement, title: '') } 
+                }.not_to change(Achievement, :count)
+            end
+        end
+
     end
 end
