@@ -13,6 +13,7 @@ class AchievementsController < ApplicationController
     end
 
     def index
+        @achievements = Achievement.public_access
     end
 
     def show
