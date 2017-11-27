@@ -2,7 +2,8 @@ class Achievement < ApplicationRecord
     belongs_to :user, optional: true #association
       
     validates :title, presence: true #validation
-    
+    validates :title, uniqueness: true
+
     enum privacy: [:public_access, :private_access, :friends_access]
 
     def description_html
