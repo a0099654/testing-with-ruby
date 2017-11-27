@@ -59,6 +59,13 @@ describe AchievementsController do
                 expect(response).to redirect_to(new_user_session_url)
             end
         end
+
+        describe 'DELETE destroy' do
+            it 'redirects to login page' do
+                delete :destroy, params: { id: FactoryBot.create(:public_achievement) }    
+                expect(response).to redirect_to(new_user_session_url)
+            end
+        end
         
     end
    
