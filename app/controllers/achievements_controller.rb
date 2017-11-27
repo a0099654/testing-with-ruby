@@ -1,5 +1,5 @@
 class AchievementsController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :edit, :create, :destroy]
+    before_action :authenticate_user!, only: [:new, :edit, :create, :destroy, :update]
 
     def new
         @achievement = Achievement.new

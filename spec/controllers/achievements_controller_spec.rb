@@ -52,6 +52,13 @@ describe AchievementsController do
                 expect(response).to redirect_to(new_user_session_url)
             end
         end
+
+        describe 'PUT update' do
+            it 'redirects to login page' do
+                put :update, params: { id: FactoryBot.create(:public_achievement), achievement: FactoryBot.attributes_for(:public_achievement) }
+                expect(response).to redirect_to(new_user_session_url)
+            end
+        end
         
     end
    
