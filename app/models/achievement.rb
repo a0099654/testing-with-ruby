@@ -1,8 +1,8 @@
 class Achievement < ApplicationRecord
-    belongs_to :user, optional: true #association
-      
-    validates :title, presence: true #validation
-    # validates :title, uniqueness: true
+    belongs_to :user, optional:true #association
+    
+    validates :title, presence: true
+
     validate :unique_title_for_one_user
 
     enum privacy: [:public_access, :private_access, :friends_access]
