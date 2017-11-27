@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Achievement, type: :model do
   describe 'validation' do
-    it 'requires title' do
-      achievement = Achievement.new(title: '')
-      expect(achievement.valid?).to be_falsy
-    end
+
+    it { should validate_presence_of(:title) }
 
     it 'requires title to be unique for one user' do
       user = FactoryBot.create(:user)
@@ -27,6 +25,6 @@ RSpec.describe Achievement, type: :model do
     achievement = Achievement.new(title: 'Some title', user: nil)
     expect(achievement.valid?).to be_truthy
   end
-  
+
   it { should belong_to(:user)}
 end
