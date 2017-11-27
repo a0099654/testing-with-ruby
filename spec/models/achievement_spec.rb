@@ -14,4 +14,8 @@ RSpec.describe Achievement, type: :model do
     expect(achievement.valid?).to be_truthy
   end
 
+  it 'has a title' do
+    achievement = Achievement.new(title: 'New achievement', user: FactoryBot.create(:user, email: 'test@test.com'))
+    expect(achievement.test_title).to eq('New achievement by test@test.com')
+  end
 end

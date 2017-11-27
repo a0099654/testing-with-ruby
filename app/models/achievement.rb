@@ -12,4 +12,8 @@ class Achievement < ApplicationRecord
     def description_html
         Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description)
     end
+
+    def test_title
+        "#{title} by #{user.email}"
+    end
 end
