@@ -118,21 +118,21 @@ describe AchievementsController do
             describe 'GET edit' do
                 it 'redirects to achievements page' do
                     get :edit,  params: { id: FactoryBot.create(:public_achievement) } 
-                    expect(response).to redirect_to(achievement_path)
+                    expect(response).to redirect_to(achievements_path)
                 end
             end
     
             describe 'PUT update' do
                 it 'redirects to achievements page' do
                     put :update, params: { id: FactoryBot.create(:public_achievement), achievement: FactoryBot.attributes_for(:public_achievement) }
-                    expect(response).to redirect_to(achievement_path)
+                    expect(response).to redirect_to(achievements_path)
                 end
             end
     
             describe 'DELETE destroy' do
                 it 'redirects to achievements page' do
                     delete :destroy, params: { id: FactoryBot.create(:public_achievement) }    
-                    expect(response).to redirect_to(achievement_path)
+                    expect(response).to redirect_to(achievements_path)
                 end
             end
         end
