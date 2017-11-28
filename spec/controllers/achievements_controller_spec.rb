@@ -34,15 +34,42 @@ describe AchievementsController do
         describe 'POST create' do
             let(:achievement_params) {{ title: "title" }}
             let(:create_achievement) { instance_double(CreateAchievement) }
+            let(:achievement) { instance_double(achievement) }
 
             before do
                 allow(CreateAchievement).to receive(:new) { create_achievement }
+                allow(create_achievement).to receive(:create) 
+                allow(create_achievement).to receive(:created?)
+                allow(create_achievement).to receive(:achievement) { achievement }
             end
 
             it 'sends create message to CreateAchievement' do
                 expect(CreateAchievement).to receive(:new).with(achievement_params, user)
                 expect(create_achievement).to receive(:create)
                 post :create, params: { achievement: achievement_params }
+            end
+
+            context 'achievement is created' do
+                before { allow(create_achievement).to receive(:created?) {true}}
+
+                it 'redirect' do
+                    post :create, params: { achievement: achievement_params }
+                    expect(response).to eq(302)
+                end
+            end
+            
+            context 'achievement is not created' do
+                before { allow(create_achievement).to receive(:created?) {false}}
+
+                it 'render :new template' do
+                    post :create, params: { achievement: achievement_params }
+                    expect(response).to render_template(:new)
+                end
+
+                it 'assigns achievement to a template' do
+                    post :create, params: { achievement: achievement_params }
+                    expect(assigns(:achievement)).to eq(achievement)
+                end
             end
         end
     end

@@ -16,11 +16,12 @@ class AchievementsController < ApplicationController
         #     render :new
         # end
 
-        # if service.create?
-        #     redirect_to achievement_path(service.achievement)
-        # else
-            render :nothing => true
-        # end
+        if service.created?
+            redirect_to achievement_path(service.achievement)
+        else
+            @achievement = service.achievement
+            render :new
+        end
     end
 
     def index
