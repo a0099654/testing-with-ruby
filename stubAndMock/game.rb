@@ -19,12 +19,12 @@ end
 describe Character do
     describe 'climbing check skill' do
         let(:die) { double }  
-        let(:logger) { double }
+        let(:logger) { double('Logger', log:nil) }
         let(:character) { Character.new(strength: 5, die: die, logger: logger) }
 
-        before do
-            allow(logger).to receive(:log)
-        end
+        # before do
+        #     allow(logger).to receive(:log)
+        # end
 
         #stub
         it 'climbs successfully when roll + strength is more than difficulty' do
