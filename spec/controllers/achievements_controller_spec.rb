@@ -22,4 +22,18 @@ describe AchievementsController do
         end
     end
 
+    describe 'authenticated user' do
+        # to create stub user
+        let(:user) { instance_double(User)  }
+        
+        before do
+            allow(controller).to receive(:current_user) { user }
+            allow(controller).to receive(:authenticate_user!) { true }
+        end
+
+        describe 'POST create' do
+            it 'sends create message to CreateAchievement' do
+            end
+        end
+    end
 end
