@@ -22,17 +22,19 @@ describe Character do
         let(:logger) { double }
         let(:character) { Character.new(strength: 5, die: die, logger: logger) }
 
+        before do
+            allow(logger).to receive(:log)
+        end
+
         #stub
         it 'climbs successfully when roll + strength is more than difficulty' do
             allow(die).to receive(:roll) { 11 }
-            allow(logger).to receive(:log)
             expect(character.climb(difficulty: 15)).to be_truthy
         end
 
         #stub
         it 'fails climbing check when roll + strength is length than difficulty' do
             allow(die).to receive(:roll) { 5 }
-            allow(logger).to receive(:log)
             expect(character.climb(difficulty: 15 )).to be_falsy
         end
 
