@@ -19,6 +19,7 @@ gem 'redcarpet'
 gem 'devise'
 
 gem 'carrierwave', '~> 1.0'
+gem 'twitter'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

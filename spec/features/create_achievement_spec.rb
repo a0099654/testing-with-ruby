@@ -23,6 +23,7 @@ feature 'create new achievement' do
         expect(Achievement.last.cover_image_identifier).to eq('cover_image.png')
         expect(page).to have_content('Achievement has been created')
         expect(Achievement.last.title).to eq('Read a book') 
+        expect(page).to have_content('We tweeted for you! https://twitter.com')
     end
 
     scenario 'can not create new achievement with invalid data' do
