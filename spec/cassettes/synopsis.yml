@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: status=Read+a+book
+    headers:
+      User-Agent:
+      - TwitterRubyGem/6.2.0
+      Authorization:
+      - OAuth oauth_consumer_key="mt24nahF781Vjhj3jRQB4vX1m", oauth_nonce="15f1a5bed8b67cc4b0f6887ebb167e34",
+        oauth_signature="4l%2BtB8kH4UQBY4tD86nsvPiqOEs%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1511924419", oauth_token="849160225546305536-tHgUyG6HYJAi4iK6Ue5gDxyaNgSCeNK",
+        oauth_version="1.0"
+      Connection:
+      - close
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.twitter.com
+  response:
+    status:
+      code: 408
+      message: Request Timeout
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '0'
+      Date:
+      - Wed, 29 Nov 2017 03:04:50 GMT
+      Server:
+      - tsa_k
+      X-Connection-Hash:
+      - 25a3e1b6069b615d409568f82fc31f96
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 03:04:50 GMT
+recorded_with: VCR 3.0.3
