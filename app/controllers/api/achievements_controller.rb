@@ -1,5 +1,6 @@
 class Api::AchievementsController < ApiController
     def index
-        render nothing: true
+        achievements = Achievement.public_access
+        render json: achievements
     end
 end

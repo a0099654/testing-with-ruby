@@ -5,7 +5,7 @@ RSpec.describe "Achievements API", type: :request do
         public_achievement= FactoryBot.create(:public_achievement, title: 'My achievement')
         private_achievement= FactoryBot.create(:private_achievement)
 
-        get '/api/achievements', params: { nil: { }}
+        get '/api/achievements', params: { nil: { }, nil: { }}
 
         expect(response.status).to eq(200)
         json = JSON.parse(response.body)
