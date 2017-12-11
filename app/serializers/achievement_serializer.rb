@@ -1,3 +1,3 @@
 class AchievementSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title
 end
